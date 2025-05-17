@@ -13,20 +13,21 @@ const Navbar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/hot-deals" className="nav-link">
+          <NavLink to="/products" className="nav-link">
+            SẢN PHẨM
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/hot" className="nav-link">
             HOT DEALS 
           </NavLink>
         </li>
         <li>
-          <NavLink to="/spa" className="nav-link">
-            LÀM ĐẸP & SPA 
+          <NavLink to="/suppliers" className="nav-link">
+            HÃNG
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/fashion" className="nav-link">
-            THỜI TRANG 
-          </NavLink>
-        </li>
+        
         
         <li>
           <NavLink to="/news" className="nav-link">

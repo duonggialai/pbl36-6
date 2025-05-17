@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://dummyjson.com/auth/login";
+const API_URL = "http://localhost:8080/api/auth/log-in";
 
 const LoginServices = {
   login: async (username, password) => {
@@ -8,18 +8,21 @@ const LoginServices = {
       const res = await axios.post(API_URL, {
         username,
         password,
+      }, {
+        withCredentials: true
       });
-      return res.data; // Trả về dữ liệu nếu đăng nhập thành công
+      return res.data;
     } catch (err) {
       if (err.response) {
-        // Lỗi từ server (ví dụ: thông báo sai tài khoản/mật khẩu)
-        throw new Error(err.response.data.message || "Đã xảy ra lỗi khi đăng nhập");
+        // Kiểm tra mã lỗi cụ thể
+        if (err.response.status === 400) {
+          throw new Error("Đăng nhập thất bại: Sai tài khoản hoặc mật khẩu");
+        }
+        throw new Error(err.response.data.message || "Lỗi máy chủ");
       } else if (err.request) {
-        // Lỗi không nhận được phản hồi từ server (ví dụ: lỗi mạng)
-        throw new Error("Không thể kết nối đến máy chủ, vui lòng thử lại sau.");
+        throw new Error("Không thể kết nối đến máy chủ.");
       } else {
-        // Lỗi khác
-        throw new Error("Đã xảy ra lỗi không xác định.");
+        throw new Error("Lỗi không xác định.");
       }
     }
   },

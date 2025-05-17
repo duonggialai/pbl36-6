@@ -1,0 +1,135 @@
+.user-profile-container {
+  max-width: 700px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.error-message {
+  color: #dc3545;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.success-message {
+  color: #28a745;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.user-info {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.user-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.user-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.user-details h2 {
+  margin: 0 0 4px 0;
+}
+
+.user-details .username {
+  color: #666;
+}
+
+.user-details-section {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.info-item label {
+  flex: 0 0 130px;
+  font-weight: 600;
+}
+
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px;
+}
+
+.info-item label {
+  flex: 0 0 130px;
+  font-weight: 600;
+}
+
+.info-item input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+  justify-content: flex-start;
+}
+
+.save-btn {
+  background-color: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+.cancel-btn {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #c82333;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.user-orders-section {
+  margin-top: 30px;
+  text-align: center;
+  color: #666;
+}

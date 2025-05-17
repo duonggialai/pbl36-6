@@ -1,0 +1,148 @@
+.product-detail {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.product-detail-top {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.product-image {
+  max-width: 350px;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.side-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 12px;
+}
+
+.button-group {
+  display: flex;
+  gap: 25px;
+}
+
+.add-to-cart-button,
+.buy {
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  font-weight: 600;
+  height: 50px;
+
+  width: 150px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 130px;
+  text-align: center;
+}
+.buy{
+  width: 155px;
+}
+
+.add-to-cart-button {
+  background-color: #007bff;
+  color: white;
+}
+
+.add-to-cart-button:hover {
+  background-color: #0056b3;
+}
+
+.buy {
+  background-color: #28a745;
+  color: white;
+}
+
+.buy:hover {
+  background-color: #1e7e34;
+}
+
+.detail {
+  width: 100%;
+  height: 60px;
+  background-color: #f1f1f1;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail p {
+  font-size: 26px;
+  font-weight: bold;
+  color: #222;
+
+  padding-bottom: 6px;
+  margin: 0;
+}
+
+.product-detail-bottom {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  padding: 0 10px;
+}
+
+.product-detail-bottom p {
+  margin-bottom: 12px;
+}
+.supplier-info {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.supplier-logo {
+  width: 60px;
+  height: 60px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  user-select: none;
+}
+
+.supplier-details p {
+  margin: 4px 0;
+}

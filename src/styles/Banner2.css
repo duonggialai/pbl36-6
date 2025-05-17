@@ -1,0 +1,46 @@
+.banner-container {
+    margin-top: 100px;
+  position: relative;
+  width: 100%;
+  max-height: 350px;
+  overflow: hidden;
+   border-radius: 20px;
+}
+
+.banner-image {
+  width: 100%;
+ 
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.banner-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+  background-color: red;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 40%;
+}
+
+.banner-btn:hover {
+  background-color: rgba(0,0,0,0.6);
+}
+
+.banner-btn.prev {
+  left: 20px;
+}
+
+.banner-btn.next {
+  right: 20px;
+}
+.space{
+    height: 100px;
+}
