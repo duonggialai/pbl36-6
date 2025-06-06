@@ -2,9 +2,9 @@
     margin-top: 100px;
   position: relative;
   width: 100%;
-  max-height: 350px;
+  max-height: 400px;
   overflow: hidden;
-   border-radius: 20px;
+   border-radius: 30px 70px;
 }
 
 .banner-image {
@@ -23,7 +23,7 @@
   padding: 10px;
   font-size: 18px;
   color: white;
-  background-color: red;
+  background-color: rgb(40, 37, 37);
   border: none;
   cursor: pointer;
   z-index: 10;

@@ -1,95 +1,133 @@
-.login-page {
-  width: 100%;
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap'); */
+
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+  background: url('/img/b3.png') no-repeat center center/cover;
   height: 100vh;
-  background: url('/img/Screenshot 2025-04-04 002909.png') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.login-page .main_head {
-  width: 400px;
-  background: rgba(215, 209, 209, 0.85);
-  padding: 20px;
+.login-box {
+  width: 900px;
+  display: flex;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  backdrop-filter: blur(5px);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.login-page .main_head h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.login-page form {
-  margin: 10px;
-}
-
-.login-page .input_field {
-  margin-bottom: 25px;
-  text-align: left;
-  margin-right: 20px;
-}
-
-.login-page .input_field label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.login-page .input_field input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  outline: none;
-}
-
-.login-page .input_field input:focus {
-  border-color: #007bff;
-}
-
-.login-page .main_head button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background: #aa36a0;
+.login-left, .login-right {
+  flex: 1;
+  padding: 40px;
   color: white;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.login-page .main_head button:hover {
-  background: #83b2e4;
+.login-left h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+   color: #ffec99;
 }
 
-.login-page .main_head img {
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-.error-message {
-  color: red;
-  font-weight: bold;
-}
-
-
-.login-page .register-link {
-  margin-top: 15px;
+.login-left p {
+  margin-top: 10px;
   font-size: 14px;
+  color: #ddd;
 }
 
-.login-page .register-link a {
+.social-icons {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.social-icons i {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.login-right h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+   color: #ffec99;
+}
+
+.login-right form label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.login-right form input[type="text"],
+.login-right form input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.login-right form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.terms {
+  font-size: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.terms input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.terms a {
+  color: #f14e4e;
   text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
-.login-page .register-link a:hover {
-  color: #0056b3;
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: darkred;
+}
+
+.signup-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.error {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+  font-size: 14px;
 }

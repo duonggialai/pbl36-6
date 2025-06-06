@@ -28,12 +28,12 @@ const Navbar = () => {
           </NavLink>
         </li>
         
-        
+{/*         
         <li>
           <NavLink to="/news" className="nav-link">
             TIN TỨC
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/about" className="nav-link">
             GIỚI THIỆU

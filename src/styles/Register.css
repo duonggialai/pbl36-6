@@ -1,0 +1,131 @@
+/* Reset & font */
+/* * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+ 
+} */
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Container nền */
+.register-wrapper {
+  background: url('/img/b1.png') no-repeat center center/cover;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Form bao quanh */
+.register-form-container {
+     margin-top: 80px;
+  width: 420px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 10px;
+   color: #fff;
+  text-shadow: 0 0 5px rgba(247, 241, 241, 0.8);
+  color: white;
+}
+
+/* Tiêu đề form */
+.register-form h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #ffec99;
+}
+
+/* Nhóm input + label */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  font-size: 14px;
+}
+
+.form-group input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+.form-group input:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px crimson;
+  background-color: rgba(255,255,255,0.3);
+}
+
+/* Thông báo lỗi và thành công */
+.form-error {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-success {
+  color: #4BB543;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Nút tạo tài khoản */
+.register-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-form button:hover {
+  background-color: darkred;
+}
+
+/* Chân form */
+.form-footer {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 13px;
+  color: #ddd;
+}
+
+.form-footer a {
+  color: #f14e4e;
+  text-decoration: none;
+}
+
+.form-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive đơn giản */
+@media (max-width: 480px) {
+  .register-form-container {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}

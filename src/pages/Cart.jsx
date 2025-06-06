@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchCartFromServer,
@@ -7,25 +7,25 @@ import {
 } from '../redux-toolkit/cartThunk';
 import '../styles/Cart.css';
 import { useNavigate } from 'react-router-dom';
+import { setCheckoutProducts } from '../redux-toolkit/checkoutSlice';
+
 const Cart = () => {
   const dispatch = useDispatch();
   const { carts, loading, error } = useSelector((state) => state.cart);
   const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const [selectedItems, setSelectedItems] = useState([]);
+
   useEffect(() => {
     if (token) {
       dispatch(fetchCartFromServer(token));
     }
   }, [dispatch, token]);
 
-  const totalPrice = carts.reduce((total, item) => {
-    const quantity = item.quantity || 1;
-    const price = item.product?.price ?? 0;
-    return total + price * quantity;
-  }, 0);
-
   const handleRemove = (id) => {
     dispatch(removeProductFromCart({ id, token }));
+    setSelectedItems(prev => prev.filter(itemId => itemId !== id));
   };
 
   const handleUpdateQuantity = (id, quantity) => {
@@ -33,11 +33,58 @@ const navigate = useNavigate();
     dispatch(updateProductQuantity({ id, quantity, token }));
   };
 
-  const handleBuyNow = (item) => {
-    
-navigate('/checkout', { state: { product: item.product } });
- 
+  const toggleSelectItem = (id) => {
+    setSelectedItems(prev =>
+      prev.includes(id) ? prev.filter(itemId => itemId !== id) : [...prev, id]
+    );
+  };
 
+  const toggleSelectAll = () => {
+    if (selectedItems.length === carts.length) {
+      setSelectedItems([]);
+    } else {
+      setSelectedItems(carts.map(item => item.id));
+    }
+  };
+
+  const totalPrice = carts.reduce((total, item) => {
+    if (!selectedItems.includes(item.id)) return total;
+    const quantity = item.quantity || 1;
+    const price = item.product?.price ?? 0;
+    return total + price * quantity;
+  }, 0);
+
+
+  const handleBuyNow = (item) => {
+    const product = {
+      id: item.product.id,
+      name: item.product.name,
+      price: item.product.price,
+      quantity: item.quantity,
+      image: item.product.main_image_url,
+    };
+    dispatch(setCheckoutProducts([product]));
+    navigate('/checkout');
+  };
+
+  const handleBuySelected = () => {
+    if (selectedItems.length === 0) {
+      alert('Vui lòng chọn sản phẩm để mua.');
+      return;
+    }
+
+    const selectedProducts = carts
+      .filter(item => selectedItems.includes(item.id))
+      .map(item => ({
+        id: item.product.id,
+        name: item.product.name,
+        price: item.product.price,
+        quantity: item.quantity,
+        image: item.product.main_image_url,
+      }));
+
+    dispatch(setCheckoutProducts(selectedProducts));
+    navigate('/checkout');
   };
 
   return (
@@ -52,9 +99,25 @@ navigate('/checkout', { state: { product: item.product } });
         <p>Giỏ hàng đang trống.</p>
       ) : (
         <>
+          <div className="cart-select-all">
+            <input
+              type="checkbox"
+              checked={selectedItems.length === carts.length}
+              onChange={toggleSelectAll}
+              id="select-all"
+            />
+            <label htmlFor="select-all">Chọn tất cả ({carts.length} sản phẩm)</label>
+          </div>
+
           <ul className="cart-list">
             {carts.map((item) => (
               <li key={item.id} className="cart-item">
+                <input
+                  type="checkbox"
+                  checked={selectedItems.includes(item.id)}
+                  onChange={() => toggleSelectItem(item.id)}
+                  className="item-checkbox"
+                />
                 <img src={item.product?.main_image_url} alt={item.product?.name} className="cart-img" />
                 <div className="cart-info">
                   <div className="info-top">
@@ -91,7 +154,15 @@ navigate('/checkout', { state: { product: item.product } });
               </li>
             ))}
           </ul>
-          <h3>Tổng cộng: {totalPrice.toLocaleString()} ₫</h3>
+
+          <div className="cart-footer">
+            <div>
+              <strong>Tổng tiền:</strong> {totalPrice.toLocaleString()} ₫
+            </div>
+            <button onClick={handleBuySelected} className="buy-selected-btn">
+              Mua hàng
+            </button>
+          </div>
         </>
       )}
     </div>

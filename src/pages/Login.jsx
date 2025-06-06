@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import '../styles/Login.css';
-import LoginServices from '../services/LoginServices';
-import { setToken } from '../redux-toolkit/authSlice';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';  // Thêm useNavigate
+import React, { useState } from "react"; 
+import "../styles/Login.css";
+import LoginServices from "../services/LoginServices";
+import authServices from "../services/authServices";
+import { setToken } from "../redux-toolkit/authSlice";
+import { setUser } from "../redux-toolkit/userSlice";
+
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: "staff022",
-    password: "hashed_password_staff2"
+    username: "admin01",
+    password: "hashed_password_admin"
   });
   const dispatch = useDispatch();
-  const navigate = useNavigate();  // Khởi tạo useNavigate
-
+  const navigate = useNavigate();
   const [error, setError] = useState("");
 
   const handleChange = (e) => {
@@ -22,18 +24,22 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
+
     try {
       const res = await LoginServices.login(formData.username, formData.password);
-      console.log("Response từ API:", res);
-
       if (res && res.result && res.result.token) {
         const token = res.result.token;
-        console.log("Token nhận được:", token);
         localStorage.setItem("authToken", token);
+        
         dispatch(setToken(token));
-
-        // Chuyển hướng về trang home khi đăng nhập thành công
-        navigate("/");  // Chuyển hướng tới trang home
+        const userData = await authServices.getCurrentUser();
+        dispatch(setUser(userData));
+       
+        if (userData.roleId == 1) {   
+          navigate("/admin");
+        } else {   
+          navigate("/");
+        }
       } else {
         setError("Không nhận được token từ API.");
       }
@@ -43,41 +49,58 @@ const Login = () => {
   };
 
   return (
-    <main className="login-page">
-      <div className="main_head">
-        <h2>Login</h2>
-        <form onSubmit={handleLogin}>
-          <div className="input_field">
-            <label htmlFor="username">Username</label>
+    <div className="login-container">
+      <div className="login-box">
+        <div className="login-left">
+          <h1>Welcome</h1>
+          <h3>Don't have an account?</h3>
+          <p>
+            Register to access all the features of our services.
+            Manage your business in one place. It's free.
+          </p>
+          <div className="social-icons">
+            <i className="fab fa-facebook-f"></i>
+            <i className="fab fa-google"></i>
+            <i className="fab fa-github"></i>
+          </div>
+        </div>
+        <div className="login-right">
+          <h2>Login</h2>
+          <form onSubmit={handleLogin}>
+            <label>Email</label>
             <input
               type="text"
               name="username"
+              placeholder="VD: staff001"
               value={formData.username}
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="input_field">
-            <label htmlFor="password">Password</label>
+            <label>Password</label>
             <input
               type="password"
               name="password"
+              placeholder="Nhập mật khẩu"
               value={formData.password}
               onChange={handleChange}
               required
             />
-          </div>
-          <div className="forgot-password">
-            <a href="#">Forgot password?</a>
-          </div>
-          <button type="submit">Login</button>
-          <div className="register-link">
-            Don't have an account? <a href="#">Sign up</a>
-          </div>
-        </form>
-        {error && <p className="error-message">{error}</p>}
+            <div className="terms">
+              <input type="checkbox" required />
+              <span>
+                I agree to the statements in{" "}
+                <a href="#">Terms of Service</a>
+              </span>
+            </div>
+            {error && <p className="error">{error}</p>}
+            <button type="submit" className="btn-login">Login</button>
+            <div className="signup-link">
+              Don't have an account? <a href="/register">Sign up</a>
+            </div>
+          </form>
+        </div>
       </div>
-    </main>
+    </div>
   );
 };
 

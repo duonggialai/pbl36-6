@@ -1,0 +1,130 @@
+.user-orders-section {
+  max-width: 900px;
+  margin: 0 auto;
+  color: #222;
+  color: #222;
+  font-family: 'Helvetica Neue', 'Segoe UI', sans-serif;
+}
+
+.user-orders-section h3 {
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 10px;
+  color: #333;
+}
+
+.order-card {
+    width: 700px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background-color: #fff;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.order-status {
+  font-weight: 600;
+}
+
+.order-status.delivered {
+  color: green;
+}
+
+.order-status.processing {
+  color: orange;
+}
+
+.order-status.cancelled {
+  color: red;
+}
+
+.order-shipping-address {
+  margin-top: 0;
+}
+
+.order-details {
+  margin-top: 15px;
+}
+
+.order-product {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order-product img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-right: 15px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.order-product-info {
+  flex: 1;
+}
+
+.order-product-name {
+  margin: 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #212121;
+}
+
+.order-product-qty-price {
+  margin: 4px 0;
+  color: #555;
+}
+
+.order-product-code {
+  color: #777;
+  font-size: 14px;
+}
+.order-status.pending {
+  color: orange;
+}
+
+.order-status.processing {
+  color: blue;
+}
+
+.order-status.shipped {
+  color: purple;
+}
+
+.order-status.delivered {
+  color: green;
+}
+
+.order-status.cancelled {
+  color: red;
+}
+.cancel-order-button {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #e53935; /* đỏ nổi bật */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-order-button:hover:not(:disabled) {
+  background-color: #b71c1c; 
+}
+
+.cancel-order-button:disabled {
+  background-color: #ef9a9a;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

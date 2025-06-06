@@ -24,7 +24,7 @@ const authServices = {
 
   updateUserInfo: async (userData, id) => {
     try {
-      // id được truyền vào để cập nhật chính xác user
+  
       const res = await axios.put(`${API_URL}/${id}`, userData, getAuthHeader());
       return res.data;
     } catch (error) {

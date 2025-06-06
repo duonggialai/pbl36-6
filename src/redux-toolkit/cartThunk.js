@@ -12,8 +12,8 @@ export const fetchCartFromServer = createAsyncThunk(
   async (token, thunkAPI) => {
     try {
       const data = await getCartFromServerAPI(token);
-       console.log('[fetchCartFromServer] data from API:', data);
-       console.log('haha');
+      //  console.log('[fetchCartFromServer] data from API:', data);
+      //  console.log('haha');
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data || 'Error');

@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       
-      <main className="product-page">
+        <main className="product-page">
         <Navbar></Navbar>
         <Outlet/>
         

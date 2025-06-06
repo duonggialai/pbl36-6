@@ -1,0 +1,68 @@
+.header-admin {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #1e293b;
+  color: white;
+  width: 100%;
+  padding: 10px 20px;
+  height: 80px;
+}
+
+.header-left .logo {
+  height: 45px;
+}
+
+.header-center {
+    position: relative;
+  display:flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 500px;
+  height: 20px;
+  margin: 0 20px;
+}
+
+.search-input {
+ height: 100%;
+  width: 100%;
+  padding: 8px 12px;
+  border-radius:15px ;
+  border: none;
+}
+
+.search-icon {
+    position: absolute;
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  right: 10px;
+  height: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.client-icon img {
+  height: 38px;
+  cursor: pointer;
+}
+
+.login-btn,
+.logout-btn {
+  padding: 6px 12px;
+  background-color: #f59e0b;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover,
+.logout-btn:hover {
+  background-color: #d97706;
+}

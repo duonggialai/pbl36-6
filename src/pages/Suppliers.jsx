@@ -12,7 +12,7 @@ const Suppliers = () => {
     SamSung: '/img/samsung.png',
     iPhone: '/img/apple.png',
     Xiaomi: '/img/xiaomi.png',
-    OPOP: '/img/oppo.png',
+    OPPO: '/img/oppo.png',
     VIVO: '/img/vivo.png',
     HONOR: '/img/honor.png',
     Realme: '/img/realme.png',

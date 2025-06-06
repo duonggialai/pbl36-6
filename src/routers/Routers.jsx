@@ -16,6 +16,18 @@ import Suppliers from "../pages/Suppliers";
 import Checkout from "../pages/Checkout";
 import SearchResults from "../pages/SearchResults";
 import SupplierProducts from "../pages/SupplierProducts";
+import Register from "../pages/Register";
+import AdminLayout from "../pages/admin/AdminLayout";
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import ManageProducts from "../pages/admin/ManageProducts";
+import ManageUser from "../pages/admin/ManageUser";
+import ManageOrders from "../pages/admin/ManageOrders";
+import AdminProfile from "../pages/admin/AdminProfile";
+import ManageShipping from "../pages/admin/ManageShipping";
+import ManageSupplier from "../pages/admin/ManageSupplier";
+import AboutUs from "../pages/AboutUs";
+import ManageReview from "../pages/admin/ManageReview";
+
 const router = createBrowserRouter([
 
     { 
@@ -33,6 +45,10 @@ const router = createBrowserRouter([
                     {
                         path:"products",
                         element: <ListProduct/>
+                    },
+                    {
+                        path:"about",
+                        element: <AboutUs/>
                     },
                     {
                             path:"hot",
@@ -78,6 +94,10 @@ const router = createBrowserRouter([
                 path:"login",
                 element: <Login/>
             },
+            {
+                path:"register",
+                element: <Register/>
+            },
             // {
             //     path:"client",
             //     element: <Client/>
@@ -89,6 +109,46 @@ const router = createBrowserRouter([
         ]
 
     },
+    {
+        path: "/admin",
+        element: <AdminLayout />,   
+        children: [
+        {
+        path: "dashboard",         
+        element: <AdminDashboard />
+        },
+          {
+        path: "profile", 
+        element: <AdminProfile/>
+        },
+        {
+        path: "products", 
+        element: <ManageProducts />
+        },
+        {
+        path: "users",   
+        element: <ManageUser />    
+        },
+        {
+        path: "reviews",   
+        element: <ManageReview/>   
+        },
+        {
+        path: "orders",  
+        element: <ManageOrders />   
+        },
+        {
+         path: "shipping",  
+        element: <ManageShipping /> 
+        },
+        {
+         path: "supplier",  
+        element: <ManageSupplier />
+        },
+
+    ]
+    }
+
     // { path: "/cart", element: <Cart /> },
     // { path: "/client", element: <Client /> },
     // { path: "/login", element: <Login /> },
