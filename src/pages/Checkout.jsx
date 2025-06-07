@@ -22,6 +22,7 @@ const Checkout = () => {
   const [address, setAddress] = useState('');
   const [paymentMethod, setPaymentMethod] = useState('COD');
   const [loading, setLoading] = useState(false);
+  const [id, setId] = useState();
 
   useEffect(() => {
     return () => {
@@ -62,12 +63,21 @@ const Checkout = () => {
 
     try {
       setLoading(true);
-      await orderService.createOrder(orderData, token);
+      const createdOrder = await orderService.createOrder(orderData, token);
+      console.log(createdOrder);
+      const orderId = createdOrder.result?.id;
+      console.log( orderId);
+      setId(orderId);
+      if (paymentMethod === 'BankTransfer') {
+    
+      navigate(`/payment/${orderId}`);
+    } else {
       alert('Đặt hàng thành công!');
       setAddress('');
       setPaymentMethod('COD');
       dispatch(resetCheckout());
       navigate('/');
+    }
     } catch (error) {
       console.error('Lỗi khi đặt hàng:', error);
       alert('Đặt hàng thất bại!');

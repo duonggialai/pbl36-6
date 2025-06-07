@@ -6,7 +6,7 @@ import {
   getCartFromServerAPI,
 } from '../services/cartService';
 
-// Lấy giỏ hàng người dùng từ server
+
 export const fetchCartFromServer = createAsyncThunk(
   'cart/fetchCartFromServer',
   async (token, thunkAPI) => {
@@ -21,7 +21,6 @@ export const fetchCartFromServer = createAsyncThunk(
   }
 );
 
-// Thêm sản phẩm vào giỏ hàng
 export const addProductToCart = createAsyncThunk(
   'cart/addProductToCart',
   async ({ productId, quantity, token }, thunkAPI) => {
@@ -34,7 +33,7 @@ export const addProductToCart = createAsyncThunk(
   }
 );
 
-// Cập nhật số lượng sản phẩm
+
 export const updateProductQuantity = createAsyncThunk(
   'cart/updateProductQuantity',
   async ({ id, quantity, token }, thunkAPI) => {
@@ -47,7 +46,7 @@ export const updateProductQuantity = createAsyncThunk(
   }
 );
 
-// Xóa sản phẩm khỏi giỏ
+
 export const removeProductFromCart = createAsyncThunk(
   'cart/removeProductFromCart',
   async ({ id, token }, thunkAPI) => {

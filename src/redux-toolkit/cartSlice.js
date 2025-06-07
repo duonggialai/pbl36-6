@@ -16,7 +16,6 @@ const cartsSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    // Nếu vẫn muốn thêm nội bộ (không gọi API)
     addToCart: (state, action) => {
       const product = action.payload;
       const existingItem = state.carts.find(item => item.id === product.id);

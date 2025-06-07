@@ -17,11 +17,11 @@ const Navbar = () => {
             SẢN PHẨM
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/hot" className="nav-link">
             HOT DEALS 
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/suppliers" className="nav-link">
             HÃNG

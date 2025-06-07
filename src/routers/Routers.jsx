@@ -19,6 +19,7 @@ import SupplierProducts from "../pages/SupplierProducts";
 import Register from "../pages/Register";
 import AdminLayout from "../pages/admin/AdminLayout";
 import AdminDashboard from "../pages/admin/AdminDashboard";
+import Dashboard from "../pages/admin/Dashboard";
 import ManageProducts from "../pages/admin/ManageProducts";
 import ManageUser from "../pages/admin/ManageUser";
 import ManageOrders from "../pages/admin/ManageOrders";
@@ -27,6 +28,7 @@ import ManageShipping from "../pages/admin/ManageShipping";
 import ManageSupplier from "../pages/admin/ManageSupplier";
 import AboutUs from "../pages/AboutUs";
 import ManageReview from "../pages/admin/ManageReview";
+import PaymentOnline from "../components/PaymentOnline";
 
 const router = createBrowserRouter([
 
@@ -83,6 +85,10 @@ const router = createBrowserRouter([
                 element: <SearchResults/>
             },
             {
+            path: "payment/:orderId",
+            element: <PaymentOnline />
+            },
+            {
                 path:"/supplier/:id",
                 element: <SupplierProducts/>
             },
@@ -99,8 +105,8 @@ const router = createBrowserRouter([
                 element: <Register/>
             },
             // {
-            //     path:"client",
-            //     element: <Client/>
+            //     path:"news",
+            //     element: <PaymentOnline/>
             // },
            {
                  path:"userprofile",
@@ -115,7 +121,7 @@ const router = createBrowserRouter([
         children: [
         {
         path: "dashboard",         
-        element: <AdminDashboard />
+        element: <Dashboard />
         },
           {
         path: "profile", 

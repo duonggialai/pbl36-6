@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/FilterSidebar.css'; // bạn tự style như UI e-commerce hiện đại
+import '../styles/FilterSidebar.css'; 
 
 const FilterSidebar = ({ filters, setFilters }) => {
   const handleChange = (e) => {

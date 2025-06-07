@@ -67,7 +67,7 @@ const Login = () => {
         <div className="login-right">
           <h2>Login</h2>
           <form onSubmit={handleLogin}>
-            <label>Email</label>
+            <label>Tài Khoản: </label>
             <input
               type="text"
               name="username"
@@ -76,7 +76,7 @@ const Login = () => {
               onChange={handleChange}
               required
             />
-            <label>Password</label>
+            <label>Mật khẩu</label>
             <input
               type="password"
               name="password"

@@ -46,7 +46,7 @@ const UserOrders = ({ filterStatus }) => {
     try {
       setCancelingOrderId(orderId);
       await orderService.cancelOrder(orderId);
-      // Cập nhật lại danh sách đơn hàng sau khi hủy thành công
+     
       await fetchOrders();
     } catch (err) {
       console.error(err);

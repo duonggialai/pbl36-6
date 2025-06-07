@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  products: [],  // danh sách sản phẩm chọn để đặt hàng
+  products: [],  
 };
 
 const checkoutSlice = createSlice({

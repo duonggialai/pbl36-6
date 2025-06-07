@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import authServices from "../../services/authServices";
-import "../../styles/AdminProfile.css"; // Ensure you have this CSS file for styling
+import "../../styles/AdminProfile.css"; 
 const AdminProfile = () => {
   const [user, setUser] = useState(null);
   const [formData, setFormData] = useState({});

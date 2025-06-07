@@ -59,4 +59,3 @@
                 };
 
     export default SupplierProducts;
-// import React, { useEffect, useState } from 'react';

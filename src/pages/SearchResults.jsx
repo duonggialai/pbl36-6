@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import BoxProduct from '../components/BoxProduct';
 import productServices from '../services/ProductServices';
-import '../styles/SearchResults.css'; // Đảm bảo có file CSS
+import '../styles/SearchResults.css';
 
 const SearchResult = () => {
   const location = useLocation();
